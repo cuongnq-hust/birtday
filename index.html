@@ -10,12 +10,23 @@
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body class="page__main">
-        <!-- 2. Phần ảnh của người bạn mún chúc -->
+        <!-- 2. Phần ảnh của người bạn muốn chúc -->
         <a href="timeline.html"><img src="./img/MyAvatar.jpg" alt="" class="cover" /></a>
 
         <!-- 3. Phần nhạc -->
         <audio id="player" autoplay loop>
             <source src="./music/music.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
         </audio>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const audio = document.getElementById('player');
+                if (audio) {
+                    audio.play().catch(error => {
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
