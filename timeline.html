@@ -20,32 +20,33 @@
         #code, #clock-box {
             display: none;
         }
+        .say {
+            font-size: 20px;
+            font-family: 'Montserrat';
+        }
     </style>
 </head>
 <body>
     <div class="buttons">
-        <a href="index.html" class="btn btn-bir">Sinh nhật</a>
-        <a href="timeline.html" class="btn btn-timeline">Dòng thời gian</a>
-        <a href="gallery/index.html" class="btn btn-gallery">Ảnh kĩ niệm</a>
+        <!-- <a href="index.html" class="btn btn-bir">Sinh nhật</a> -->
+        <!-- <a href="timeline.html" class="btn btn-timeline">Dòng thời gian</a> -->
+        
     </div>
     <div id="main">
         <div id="wrap">
             <div id="text">
                 <div id="code">
-                    <font color="#3500ff"><span class="say">Chúc mừng sinh nhật pé</span><br>
-                        <span class="say">Mong em sẽ có đậu được trường em muốn vào</span><br>
-                        <span class="say">Tuổi mới sẽ chín chắn hơn, ngày càng xinh hơn</span><br>
-                        <span class="say"> </span><br>
-                        <span class="say">Bớt thức khuya lại và dành thời gian nhiều học tập và bạn bè</span><br>
-                        <span class="say">Chúc em tuổi 17 luôn xinh đẹp trong mắt ba mẹ và bạn bè</span><br>
-                        <span class="say">Chúc em sinh nhật vui vẻ.</span><br>
-                        <span class="say"> </span><br>
-                        <span class="say"><span class="space"></span> -- Anh yêu Em --</span>
+                    <font color="#2e4a62">
+                        <span class="say">Chúc mừng sinh nhật chị! Chị là một người lãnh đạo xuất sắc và là nguồn cảm hứng cho tất cả chúng em. Mong chị có một năm tràn đầy sức khỏe, hạnh phúc và thành công.</span><br>
+                        <span class="say"></span><br>
+                        <span class="say">Sự lãnh đạo và khả năng của chị luôn là nguồn động viên lớn lao cho chúng em. Chúc chị có một ngày thật đặc biệt và đầy niềm vui.</span><br>
+                        <span class="say"></span><br>
+                        <span class="say">Chúc chị tuổi mới mọi việc hanh thông, luôn nhiều sức khỏe để dẫn dắt gia đình QTRR ngày càng vững mạnh, đồng hành cùng MB băng băng tiến trên mọi mặt trận</span><br>
                     </font>
                 </div>
             </div>
             <div id="clock-box">
-                <span class="STYLE1"> Thời gian đón tuổi mới</span> 
+                <a href="gallery/index.html" class="btn btn-gallery" style="font-size: 16px; background-image: none;"><span class="STYLE1">Gia đình QTRR gửi đến chị....</span> </a>
                 <div id="clock"></div>
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
@@ -118,8 +119,6 @@
                 canvas.unbind("click");
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
-                
-                // Hiện các phần tử code và clock-box
                 $("#code").show();
                 $("#clock-box").fadeIn(500);
             }
