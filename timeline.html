@@ -37,11 +37,11 @@
             <div id="text">
                 <div id="code">
                     <font color="#2e4a62">
-                        <span class="say">Chúc mừng sinh nhật chị! Chị là một người lãnh đạo xuất sắc và là nguồn cảm hứng cho tất cả chúng em. Mong chị có một năm tràn đầy sức khỏe, hạnh phúc và thành công.</span><br>
+                        <span class="say say1">Chúc mừng sinh nhật chị! Chị là một người lãnh đạo xuất sắc và là nguồn cảm hứng cho tất cả chúng em. Mong chị có một năm tràn đầy sức khỏe, hạnh phúc và thành công.</span><br>
                         <span class="say"></span><br>
-                        <span class="say">Sự lãnh đạo và khả năng của chị luôn là nguồn động viên lớn lao cho chúng em. Chúc chị có một ngày thật đặc biệt và đầy niềm vui.</span><br>
+                        <span class="say say2">Sự lãnh đạo và khả năng của chị luôn là nguồn động viên lớn lao cho chúng em. Chúc chị có một ngày thật đặc biệt và đầy niềm vui.</span><br>
                         <span class="say"></span><br>
-                        <span class="say">Chúc chị tuổi mới mọi việc hanh thông, luôn nhiều sức khỏe để dẫn dắt gia đình QTRR ngày càng vững mạnh, đồng hành cùng MB băng băng tiến trên mọi mặt trận</span><br>
+                        <span class="say say3">Chúc chị tuổi mới mọi việc hanh thông, luôn nhiều sức khỏe để dẫn dắt gia đình QTRR ngày càng vững mạnh, đồng hành cùng MB băng băng tiến trên mọi mặt trận</span><br>
                     </font>
                 </div>
             </div>
@@ -55,9 +55,47 @@
 
     <audio id="player" autoplay loop>
         <source src="./music/music.mp3" type="audio/mp3" />
-    </audio>
+    </audio> 
     <script>
+
     (function(){
+        const renderText = () => {
+    // Function to handle text writing animation
+        function animateTextWriting(targetElement, textOrigin, delay, totalTime) {
+            let index = 0;
+            setTimeout(() => {
+            let intervalId = setInterval(() => {
+                targetElement.style.opacity = 1;
+                if (index <= textOrigin.length) {
+                index++;
+                targetElement.innerHTML = textOrigin.substring(0, index);
+                } else {
+                clearInterval(intervalId);
+                }
+            }, delay);
+            }, totalTime);
+        }
+        
+        // Array to hold text elements and their respective details
+        let textElements = [
+            { selector: ".say1.say", delay: 30 },
+            { selector: ".say2.say", delay: 30 },
+            { selector: ".say3.say", delay: 40 }
+        ];
+        
+        let totalTime = 0;
+        textElements.forEach((element, i) => {
+            let targetElement = document.querySelector(element.selector);
+            let textOrigin = targetElement.innerHTML;
+            targetElement.innerHTML = "";
+            
+            animateTextWriting(targetElement, textOrigin, element.delay, totalTime);
+            
+            totalTime += textOrigin.length * element.delay;
+        });
+};
+
+
         var canvas = $('#canvas');
 		
         if (!canvas[0].getContext) {
@@ -122,6 +160,14 @@
                 $("#code").show();
                 $("#clock-box").fadeIn(500);
             }
+
+            document.querySelector(".say1.say").style.opacity = 0;;
+            document.querySelector(".say2.say").style.opacity = 0;;
+            document.querySelector(".say3.say").style.opacity = 0;;
+            setTimeout(()=>{
+                renderText()
+            },10000)
+
         }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
@@ -187,7 +233,7 @@
         var textAnimate = eval(Jscex.compile("async", function () {
             var start_date  = Date.now();
 		    var together = new Date();
-		    var year = 2005, month = 08, day = 01;  
+		    var year = 2005, month = 8, day = 1;  
             
             var end_date = new Date(new Date(year, month, day));
             
